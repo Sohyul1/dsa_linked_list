@@ -32,6 +32,7 @@ class LinkedList:
             else:
                 current_node = current_node.next
         return False
+    
     def remove_beginning(self):
         if self.head is None:
             return None
@@ -39,4 +40,20 @@ class LinkedList:
         self.head = self.head.next
         if self.head is None:
             self.tail = None
+        return removed_data
+    
+    def remove_at_end(self):
+        if self.head is None:
+            return None
+        if self.head.next is None:
+            removed_data = self.head.data
+            self.head = None
+            self.tail = None
+            return removed_data
+        current = self.head
+        while current.next.next:
+            current = current.next
+        removed_data = current.next.data
+        current.next = None
+        self.tail = current
         return removed_data
