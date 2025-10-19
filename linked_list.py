@@ -74,3 +74,14 @@ class LinkedList:
                 return removed_data
             current = current.next
         return None
+    
+    def print_list(self):
+        if self.head is None:
+            print("Linked list is empty.")
+            return
+        current = self.head
+        print("Linked list elements:")
+        while current:
+            print(current.data, end=" → ")
+            current = current.next
+        print("None")
